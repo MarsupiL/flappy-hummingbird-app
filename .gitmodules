@@ -1,0 +1,3 @@
+[submodule "flappy-hummingbird"]
+	path = flappy-hummingbird
+	url = https://github.com/michahell/flappy-hummingbird

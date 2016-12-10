@@ -1,0 +1,29 @@
+{
+  "name": "flappy-hummingbird-app",
+  "description": "Just a flappy hummingbird mobile app",
+  "repository": "https://github.com/MarsupiL/flappy-hummingbird-app.git",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "cordova": "6.4.0",
+    "cordova-android" : "6.1.0",
+    "cordova-ios" : "4.3.1",
+    "cordova-custom-config" : "3.1.2",
+    "cordova-plugin-console" : "1.0.4",
+    "cordova-plugin-crosswalk-webview" : "2.2.0",
+    "cordova-plugin-statusbar" : "2.2.0",
+    "cordova-plugin-whitelist" : "1.3.0",
+    "cordova-universal-links-plugin" : "1.2.1"
+  },
+  "scripts": {
+    "cordova": "cordova --no-update-notifier",
+    "platforms:update": "cordova platform add {ios,android}",
+    "plugins:update": "cordova plugin add cordova-plugin-{console,crosswalk-webview,statusbar,whitelist} && cordova plugin add cordova-custom-config https://github.com/nordnet/cordova-universal-links-plugin.git",
+    "preplatforms:update": "rm -rf platforms",
+    "preplugins:update": "rm -rf plugins",
+    "preinstall": "npm prune && rm -rf {plugins,platforms}",
+    "postinstall": "npm run plugins:update && npm run platforms:update",
+    "version": "npm run version:gitadd",
+    "version:gitadd": "git add CHANGELOG.md"
+  }
+}
