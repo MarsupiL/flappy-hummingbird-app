@@ -2,11 +2,9 @@
 <widget id="com.flappyhummingbird.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>FlappyHummingbirdApp</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Just a cool flappy ZIVVER hummingbird
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+    <author email="marsupil@gmail.com" href="https://www.zivver.com/flappyhummingbird"/>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
@@ -15,12 +13,129 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+
+    <plugin name="cordova-custom-config" spec="./node_modules/cordova-custom-config"/>
+    <plugin name="cordova-plugin-console" spec="./node_modules/cordova-plugin-console"/>
+    <plugin name="cordova-plugin-crosswalk-webview" spec="./node_modules/cordova-plugin-crosswalk-webview"/>
+    <plugin name="cordova-plugin-statusbar" spec="./node_modules/cordova-plugin-statusbar"/>
+    <plugin name="cordova-plugin-whitelist" spec="./node_modules/cordova-plugin-whitelist"/>
+
+    <engine name="android" spec="./node_modules/cordova-android"/>
+    <engine name="ios" spec="./node_modules/cordova-ios"/>
+
+    <!--ALL PLATFORMS-->
+    <preference name="AppendUserAgent" value="FlappyApp/0.1.0"/>
+    <preference name="cordova-custom-config-autorestore" value="true"/>
+    <preference name="DisallowOverscroll" value="true"/>
+
+    <!--Default app icon-->
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+
+    <!--ANDROID ONLY-->
     <platform name="android">
-        <allow-intent href="market:*" />
+        <allow-intent href="market:*"/>
+
+        <!--Prevent Android from creating multiple app instances-->
+        <preference name="AndroidLaunchMode" value="singleInstance"/>
+
+        <!--App icon-->
+        <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
+        <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
+        <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
+        <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
+        <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
+        <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+
+        <!--App splashscreen-->
+        <splash src="resources/android/splash/drawable-land-ldpi-screen.png" density="land-ldpi"/>
+        <splash src="resources/android/splash/drawable-land-mdpi-screen.png" density="land-mdpi"/>
+        <splash src="resources/android/splash/drawable-land-hdpi-screen.png" density="land-hdpi"/>
+        <splash src="resources/android/splash/drawable-land-xhdpi-screen.png" density="land-xhdpi"/>
+        <splash src="resources/android/splash/drawable-land-xxhdpi-screen.png" density="land-xxhdpi"/>
+        <splash src="resources/android/splash/drawable-land-xxxhdpi-screen.png" density="land-xxxhdpi"/>
+        <splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
+        <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+        <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+        <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+        <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+        <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
     </platform>
+
+    <!--IOS ONLY-->
     <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
+        <allow-intent href="itms:*"/>
+        <allow-intent href="itms-apps:*"/>
+
+        <!--Common Xcode configuration-->
+        <preference name="ios-XCBuildConfiguration-PRODUCT_NAME" value="FlappyHummingbird" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-PRODUCT_BUNDLE_IDENTIFIER" value="com.flappyhummingbird.app" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-DEVELOPMENT_TEAM" value="QH6287NJA5" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-ENABLE_STRICT_OBJC_MSGSEND" value="YES" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-GCC_WARN_64_TO_32_BIT_CONVERSION" value="YES" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-CLANG_WARN_INFINITE_RECURSION" value="YES" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-GCC_NO_COMMON_BLOCKS" value="YES" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-CLANG_WARN_SUSPICIOUS_MOVE" value="YES" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-CLANG_WARN_UNREACHABLE_CODE" value="YES" quote="none"/>
+        <preference name="ios-XCBuildConfiguration-ENABLE_TESTABILITY" value="YES" quote="none"/>
+        <config-file platform="ios" target="*-Info.plist" parent="CFBundleShortVersionString" mode="replace">
+            <string>0.1</string>
+        </config-file>
+        <config-file platform="ios" target="*-Info.plist" parent="CFBundleVersion" mode="replace">
+            <string>0</string>
+        </config-file>
+        <config-file platform="ios" target="*-Info.plist" parent="CFBundleIdentifier" mode="replace">
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        </config-file>
+
+        <!--Debug Xcode configuration-->
+        <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="9.0" quote="none" buildType="debug" />
+        <preference name="ios-XCBuildConfiguration-PROVISIONING_PROFILE_SPECIFIER" value="DEV-FlappyHummingbird" quote="value" buildType="debug" />
+        <preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Developer" buildType="debug" xcconfigEnforce="true" />
+        <!--<preference name="ios-XCBuildConfiguration-CODE_SIGN_ENTITLEMENTS" value="ZIVVER/Entitlements-Debug.plist" quote="value"/>-->
+
+        <!--Release Xcode configuration-->
+        <preference name="ios-XCBuildConfiguration-IPHONEOS_DEPLOYMENT_TARGET" value="9.0" quote="none" buildType="release" />
+        <preference name="ios-XCBuildConfiguration-PROVISIONING_PROFILE_SPECIFIER" value="DISTRIB-FlappyHummingbird" quote="value" buildType="release" />
+        <preference name="ios-XCBuildConfiguration-CODE_SIGN_IDENTITY" value="iPhone Distribution" buildType="release" xcconfigEnforce="true" />
+        <!--<preference name="ios-XCBuildConfiguration-CODE_SIGN_ENTITLEMENTS" value="ZIVVER/Entitlements-Release.plist" quote="value"/>-->
+
+        <!--Status bar-->
+        <preference name="StatusBarOverlaysWebView" value="false"/>
+        <preference name="StatusBarBackgroundColor" value="#1d5876"/>
+        <preference name="StatusBarStyle" value="lightcontent"/>
+
+        <!--App icon-->
+        <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
+        <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
+        <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
+        <icon src="resources/ios/icon/icon-40@2x.png" width="80" height="80"/>
+        <icon src="resources/ios/icon/icon-40@3x.png" width="120" height="120"/>
+        <icon src="resources/ios/icon/icon-50.png" width="50" height="50"/>
+        <icon src="resources/ios/icon/icon-50@2x.png" width="100" height="100"/>
+        <icon src="resources/ios/icon/icon-60.png" width="60" height="60"/>
+        <icon src="resources/ios/icon/icon-60@2x.png" width="120" height="120"/>
+        <icon src="resources/ios/icon/icon-60@3x.png" width="180" height="180"/>
+        <icon src="resources/ios/icon/icon-72.png" width="72" height="72"/>
+        <icon src="resources/ios/icon/icon-72@2x.png" width="144" height="144"/>
+        <icon src="resources/ios/icon/icon-76.png" width="76" height="76"/>
+        <icon src="resources/ios/icon/icon-76@2x.png" width="152" height="152"/>
+        <icon src="resources/ios/icon/icon-83.5@2x.png" width="167" height="167"/>
+        <icon src="resources/ios/icon/icon-small.png" width="29" height="29"/>
+        <icon src="resources/ios/icon/icon-small@2x.png" width="58" height="58"/>
+        <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>
+
+        <!--App splashscreen-->
+        <splash src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" height="1136"/>
+        <splash src="resources/ios/splash/Default-667h.png" width="750" height="1334"/>
+        <splash src="resources/ios/splash/Default-736h.png" width="1242" height="2208"/>
+        <splash src="resources/ios/splash/Default-Landscape-736h.png" width="2208" height="1242"/>
+        <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+        <splash src="resources/ios/splash/Default-Landscape@~ipadpro.png" width="2732" height="2048"/>
+        <splash src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+        <splash src="resources/ios/splash/Default-Portrait@~ipadpro.png" width="2048" height="2732"/>
+        <splash src="resources/ios/splash/Default-Portrait~ipad.png" width="768" height="1024"/>
+        <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
+        <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
     </platform>
 </widget>

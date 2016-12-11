@@ -1,17 +1,17 @@
 {
   "android": {
     "debug": {
-      "keystore": "ZIVVER-key.keystore",
+      "keystore": "FLAPPY-key.keystore",
       "storePassword": "reet.kever",
-      "alias": "ZIVVER",
-      "password" : "reet.kever",
+      "alias": "FLAPPY",
+      "password" : "flappyz",
       "keystoreType": ""
     },
     "release": {
-      "keystore": "ZIVVER-key.keystore",
+      "keystore": "FLAPPY-key.keystore",
       "storePassword": "reet.kever",
-      "alias": "ZIVVER",
-      "password" : "reet.kever",
+      "alias": "FLAPPY",
+      "password" : "flappyz",
       "keystoreType": ""
     }
   }
