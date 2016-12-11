@@ -1,0 +1,18 @@
+{
+  "android": {
+    "debug": {
+      "keystore": "ZIVVER-key.keystore",
+      "storePassword": "reet.kever",
+      "alias": "ZIVVER",
+      "password" : "reet.kever",
+      "keystoreType": ""
+    },
+    "release": {
+      "keystore": "ZIVVER-key.keystore",
+      "storePassword": "reet.kever",
+      "alias": "ZIVVER",
+      "password" : "reet.kever",
+      "keystoreType": ""
+    }
+  }
+}
