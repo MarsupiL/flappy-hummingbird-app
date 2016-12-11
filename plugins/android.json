@@ -26,9 +26,6 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.flappyhummingbird.app"
-        },
-        "cordova-universal-links-plugin": {
-            "PACKAGE_NAME": "com.flappyhummingbird.app"
         }
     },
     "dependent_plugins": {}
